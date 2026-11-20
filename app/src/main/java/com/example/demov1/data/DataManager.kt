@@ -6,26 +6,32 @@ import com.example.demov1.model.Transaction
 object DataManager {
     val sampleTransactions = mutableListOf(
         Transaction(
-            id = "Ăn trưa",
-            amount = -85_000.0,
+            id = "2",
+            title = "Ăn sáng",
+            amount = -5.000,
             type = "Khoản chi",
-            date = "19/11/2026",
+            date = "21/11/2026",
             imageUrl = ""
         ),
         Transaction(
-            id = "Lương tháng",
-            amount = 8_500_000.0,
-            type = "Khoản thu",
-            date = "18/11/2026",
+            id = "1",
+            title = "Mỳ tôm",
+            amount = -10.000,
+            type = "Khoản chi",
+            date = "21/11/2026",
             imageUrl = ""
+
         ),
         Transaction(
-            id = "Cà phê",
-            amount = -42_000.0,
+            id = "1",
+            title = "Tiền lương",
+            amount = 30.000,
             type = "Khoản chi",
-            date = "17/11/2026",
+            date = "21/11/2026",
             imageUrl = ""
+
         )
+
     )
     fun addTransaction(Transaction: Transaction) {
         sampleTransactions.add(Transaction)

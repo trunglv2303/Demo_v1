@@ -45,12 +45,13 @@ class TransactionAdapter(
             binding.transactionType.text = transaction.type
             val isIncome = transaction.type == binding.root.context.getString(R.string.transaction_income)                    || transaction.amount >= 0
             if (isIncome) {
-                binding.container.setBackgroundColor(Color.parseColor("#E3F2BB"))
-
-                binding.transactionAmount.setTextColor(Color.parseColor("#2E7D32"))
+                binding.root.setCardBackgroundColor(Color.parseColor("#ECFDF3"))
+                binding.root.strokeColor = Color.parseColor("#BBF7D0")
+                binding.transactionAmount.setTextColor(Color.parseColor("#15803D"))
             } else {
-                binding.container.setBackgroundColor(Color.parseColor("#FDE8E8"))
-                binding.transactionAmount.setTextColor(Color.parseColor("#C62828"))
+                binding.root.setCardBackgroundColor(Color.parseColor("#FEF2F2"))
+                binding.root.strokeColor = Color.parseColor("#FECACA")
+                binding.transactionAmount.setTextColor(Color.parseColor("#DC2626"))
             }
 
 
