@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Home.Card"
+    android:layout_marginBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/container"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/transactionName"
+                style="@style/Home.Heading"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/transactionType"
+                style="@style/Home.Body"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/transactionDate"
+                style="@style/Home.Body"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/transactionAmount"
+            style="@style/Home.Heading"
+            android:layout_width="wrap_content"
+            android:textSize="16sp" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

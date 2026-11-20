@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/Home.Heading"
+            android:accessibilityHeading="true"
+            android:text="@string/transaction_detail_title"
+            android:textSize="32sp" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Home.Card"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout style="@style/Home.CardContent">
+
+                <TextView
+                    android:id="@+id/transactionName"
+                    style="@style/Home.Heading"
+                    tools:text="@string/transaction_sample_food" />
+
+                <TextView
+                    android:id="@+id/transactionAmount"
+                    style="@style/Home.Heading"
+                    android:layout_marginTop="8dp"
+                    android:textSize="36sp"
+                    tools:text="−85.000 ₫" />
+
+                <TextView
+                    android:id="@+id/transactionType"
+                    style="@style/Home.Body"
+                    android:layout_marginTop="4dp"
+                    tools:text="@string/transaction_expense" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Home.Card"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout style="@style/Home.CardContent">
+
+                <TextView
+                    style="@style/Home.Body"
+                    android:labelFor="@id/transactionDate"
+                    android:text="@string/transaction_detail_date" />
+
+                <TextView
+                    android:id="@+id/transactionDate"
+                    style="@style/Home.Heading"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    tools:text="19/11/2026" />
+
+                <TextView
+                    style="@style/Home.Body"
+                    android:layout_marginTop="16dp"
+                    android:labelFor="@+id/transactionId"
+                    android:text="@string/transaction_id" />
+
+                <TextView
+                    android:id="@id/transactionId"
+                    style="@style/Home.Heading"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    tools:text="001" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

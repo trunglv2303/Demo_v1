@@ -1,0 +1,58 @@
+<resources>
+    <style name="Home" />
+
+    <style name="Home.Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Home.Body" parent="Home.Text">
+        <item name="android:textAppearance">?attr/textAppearanceBody2</item>
+    </style>
+
+    <style name="Home.Heading" parent="Home.Text">
+        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Home.Section" parent="Home.Heading">
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:accessibilityHeading">true</item>
+    </style>
+
+    <style name="Home.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">?attr/colorControlHighlight</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="Home.CardContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">18dp</item>
+    </style>
+
+    <style name="Home.BalanceColumn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Home.BalanceLabel" parent="Home.Text">
+        <item name="android:textColor">#E0E7FF</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Home.BalanceValue" parent="Home.Text">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

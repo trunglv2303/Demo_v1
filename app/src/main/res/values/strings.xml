@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">DemoV1</string>
+    <string name="transaction_title">Giao dịch</string>
+    <string name="transaction_detail_title">Chi tiết giao dịch</string>
+    <string name="transaction_detail_date">Ngày giao dịch</string>
+    <string name="transaction_preview">Dữ liệu mẫu</string>
+    <string name="transaction_create">Tạo giao dịch</string>
+    <string name="transaction_close">Đóng</string>
+    <string name="transaction_income">Khoản thu</string>
+    <string name="transaction_expense">Khoản chi</string>
+    <string name="transaction_name">Tên giao dịch</string>
+    <string name="transaction_amount">Số tiền (₫)</string>
+    <string name="transaction_id">ID giao dịch</string>
+    <string name="transaction_choose_date">Chọn ngày giao dịch</string>
+    <string name="transaction_selected_date">Ngày giao dịch: %1$s</string>
+    <string name="transaction_sample_food">Ăn trưa</string>
+    <string name="transaction_sample_salary">Lương tháng</string>
+    <string name="transaction_sample_coffee">Cà phê</string>
+    <string name="home_title">Tổng quan</string>
+    <string name="home_balance">Số dư hiện tại</string>
+    <string name="home_income">Tổng thu</string>
+    <string name="home_expense">Tổng chi</string>
+    <string name="home_zero_amount">0 ₫</string>
+    <string name="home_tasks">Công việc</string>
+    <string name="home_task_progress">0/0 đã hoàn thành</string>
+    <string name="home_no_tasks">Chưa có công việc nào.</string>
+    <string name="home_recent_transactions">Giao dịch gần đây</string>
+    <string name="home_no_transactions">Chưa có giao dịch nào.</string>
+</resources>
