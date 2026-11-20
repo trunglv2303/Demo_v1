@@ -86,5 +86,14 @@
             android:text="@string/transaction_choose_date"
             android:textAllCaps="false"
             app:cornerRadius="12dp" />
+
+        <Button
+            android:id="@+id/createTransaction"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/primarycolor"
+            android:layout_gravity="center_horizontal"
+            android:text="Tạo giao dịch"
+            />
     </LinearLayout>
 </ScrollView>

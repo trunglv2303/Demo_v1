@@ -1,0 +1,10 @@
+<resources>
+    <string name="home_previous_month">Tháng trước</string>
+    <string name="home_next_month">Tháng sau</string>
+    <string name="home_account_balance">Số dư tất cả tài khoản: %1$s</string>
+    <string name="home_day_total">Tổng: %1$s</string>
+    <string name="home_collapse_day">Thu gọn %1$s. %2$s</string>
+    <string name="home_expand_day">Mở rộng %1$s. %2$s</string>
+    <color name="home_income_amount">#008A26</color>
+    <color name="home_expense_amount">#C62028</color>
+</resources>

@@ -16,13 +16,13 @@ class TransactionDetailFragment : Fragment() {
     ): View {
         val binding = FragmentTransactionDetailBinding.inflate(inflater, container, false)
 
-        val id = arguments?.getInt(EXTRA_ID) ?: 0
+        val name = arguments?.getString(EXTRA_ID).orEmpty()
         val amount = arguments?.getDouble(EXTRA_AMOUNT) ?: 0.0
         val type = arguments?.getString(EXTRA_TYPE).orEmpty()
         val date = arguments?.getString(EXTRA_DATE).orEmpty()
         val imageUrl = arguments?.getString(EXTRA_IMAGE_URL).orEmpty()
 
-         if (id != 0) binding.transactionName.text = getString(id)
+         binding.transactionName.text = name
          binding.transactionAmount.text = amount.toString()
          binding.transactionType.text = type
          binding.transactionDate.text = date
@@ -42,7 +42,7 @@ class TransactionDetailFragment : Fragment() {
         fun newInstance(transaction: Transaction): TransactionDetailFragment {
             val fragment = TransactionDetailFragment()
             val bundle = Bundle().apply {
-                putInt(EXTRA_ID, transaction.id)
+                putString(EXTRA_ID, transaction.id)
                 putDouble(EXTRA_AMOUNT, transaction.amount)
                 putString(EXTRA_TYPE, transaction.type)
                 putString(EXTRA_DATE, transaction.date)
@@ -51,5 +51,7 @@ class TransactionDetailFragment : Fragment() {
             fragment.arguments = bundle
             return fragment
         }
+
+        fun putInt(key: String, value: String) {}
     }
 }

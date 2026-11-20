@@ -1,7 +1,7 @@
 package com.example.demov1.ui
 
-import android.app.Dialog
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.DialogFragment
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.demov1.R
 import com.example.demov1.adapter.TransactionAdapter
+import com.example.demov1.data.DataManager
 import com.example.demov1.databinding.DialogTransactionBinding
 import com.example.demov1.databinding.FragmentExpenseBinding
 import com.example.demov1.model.Transaction
@@ -21,41 +22,18 @@ class ExpenseFragment : Fragment(R.layout.fragment_expense) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentExpenseBinding.bind(view)
-        val sampleTransactions = mutableListOf(
-            Transaction(
-                id = R.string.transaction_sample_food,
-                amount = -85_000.0,
-                type = getString(R.string.transaction_expense),
-                date = "19/11/2026",
-                imageUrl = ""
-            ),
-            Transaction(
-                id = R.string.transaction_sample_salary,
-                amount = 8_500_000.0,
-                type = getString(R.string.transaction_income),
-                date = "18/11/2026",
-                imageUrl = ""
-            ),
-            Transaction(
-                id = R.string.transaction_sample_coffee,
-                amount = -42_000.0,
-                type = getString(R.string.transaction_expense),
-                date = "17/11/2026",
-                imageUrl = ""
-            )
-        )
+        val sampleTransactions = DataManager.sampleTransactions
 
         binding.transactionList.layoutManager = LinearLayoutManager(requireContext())
-        binding.transactionList.adapter = TransactionAdapter(sampleTransactions){
-            transaction ->
-            val detailFragment = TransactionDetailFragment.newInstance(transaction)
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, detailFragment)
-                .addToBackStack(null) // Giúp bấm nút Back quay lại được danh sách giao dịch
-                .commit()
-        }
-
-
+        binding.transactionList.adapter =
+            TransactionAdapter(sampleTransactions) { transaction ->
+                val detailFragment = TransactionDetailFragment.newInstance(transaction)
+                parentFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainer, detailFragment)
+                    .addToBackStack(null) // Giúp bấm nút Back quay lại được danh sách giao dịch
+                    .commit()
+            }
 
         binding.createTransaction.setOnClickListener {
             if (childFragmentManager.findFragmentByTag(CreateTransactionDialog.TAG) == null) {
@@ -76,27 +54,58 @@ class CreateTransactionDialog : DialogFragment() {
             selectedDate.timeInMillis = savedInstanceState.getLong(DATE_KEY)
             hasSelectedDate = true
         }
-
+        binding.createTransaction.setOnClickListener {
+            val idText = binding.transactionId.text?.toString()?.trim().orEmpty()
+            val amountText = binding.transactionAmount.text?.toString()?.trim().orEmpty()
+            val isIncome = binding.transactionKind.checkedRadioButtonId == R.id.income
+            val id = idText.toIntOrNull()
+            val rawAmount = amountText.toDoubleOrNull()
+            if (rawAmount == null) {
+                binding.transactionAmount.error = "Vui lòng nhập số tiền hợp lệ"
+                return@setOnClickListener
+            }
+            val finalAmount = if (isIncome) rawAmount else -rawAmount
+            val type =
+                if (isIncome) {
+                    getString(R.string.transaction_income)
+                } else {
+                    getString(R.string.transaction_expense)
+                }
+            val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.forLanguageTag("vi-VN"))
+            val dateText = formatter.format(selectedDate.time)
+            val newTransaction =
+                Transaction(
+                    id = idText.toString(),
+                    amount = finalAmount,
+                    type = type,
+                    date = dateText,
+                    imageUrl = "",
+                )
+            DataManager.addTransaction(newTransaction)
+            parentFragmentManager.setFragmentResult(RESULT_KEY, Bundle())
+            dismiss()
+        }
         fun showSelectedDate() {
             val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.forLanguageTag("vi-VN"))
-            binding.selectDate.text = getString(
-                R.string.transaction_selected_date, formatter.format(selectedDate.time)
-            )
+            binding.selectDate.text =
+                getString(R.string.transaction_selected_date, formatter.format(selectedDate.time))
         }
 
         if (hasSelectedDate) showSelectedDate()
         binding.selectDate.setOnClickListener {
-            datePicker = DatePickerDialog(
-                requireContext(),
-                { _, year, month, day ->
-                    selectedDate.set(year, month, day)
-                    hasSelectedDate = true
-                    showSelectedDate()
-                },
-                selectedDate.get(Calendar.YEAR),
-                selectedDate.get(Calendar.MONTH),
-                selectedDate.get(Calendar.DAY_OF_MONTH)
-            ).also { it.show() }
+            datePicker =
+                DatePickerDialog(
+                        requireContext(),
+                        { _, year, month, day ->
+                            selectedDate.set(year, month, day)
+                            hasSelectedDate = true
+                            showSelectedDate()
+                        },
+                        selectedDate.get(Calendar.YEAR),
+                        selectedDate.get(Calendar.MONTH),
+                        selectedDate.get(Calendar.DAY_OF_MONTH),
+                    )
+                    .also { it.show() }
         }
 
         return MaterialAlertDialogBuilder(requireContext())
@@ -119,6 +128,7 @@ class CreateTransactionDialog : DialogFragment() {
 
     companion object {
         const val TAG = "create_transaction"
+        const val RESULT_KEY = "transaction_created"
         private const val DATE_KEY = "selected_date"
     }
 }
