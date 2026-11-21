@@ -26,7 +26,6 @@ class TransactionDetailFragment : Fragment() {
          binding.transactionAmount.text = amount.toString()
          binding.transactionType.text = type
          binding.transactionDate.text = date
-//         binding.transactionImage.load(imageUrl)
 
 
         return binding.root

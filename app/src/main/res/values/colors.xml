@@ -11,4 +11,18 @@
     <color name="primarycolor">#217BF2</color>
     <color name="primarybody">#E4EFFD</color>
     <color name="incomecolor">#00C853</color>
+    <color name="settings_bg">#F5F7FA</color>
+    <color name="settings_surface">#FFFFFF</color>
+    <color name="settings_text">#1E293B</color>
+    <color name="settings_text_secondary">#64748B</color>
+    <color name="settings_stroke">#E2E8F0</color>
+    <color name="settings_divider">#F1F5F9</color>
+    <color name="settings_chevron">#94A3B8</color>
+    <color name="expense_summary_bg">#E4EFFD</color>
+    <color name="income_card_bg">#ECFDF3</color>
+    <color name="income_card_stroke">#BBF7D0</color>
+    <color name="income_amount_text">#15803D</color>
+    <color name="expense_card_bg">#FEF2F2</color>
+    <color name="expense_card_stroke">#FECACA</color>
+    <color name="expense_amount_text">#DC2626</color>
 </resources>

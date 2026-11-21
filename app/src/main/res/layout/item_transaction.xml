@@ -27,17 +27,32 @@
                 android:id="@+id/transactionType"
                 style="@style/Home.Body"
                 android:textSize="16sp" />
-
+           
             <TextView
                 android:id="@+id/transactionDate"
                 style="@style/Home.Body"
                 android:layout_marginTop="4dp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/transactionAmount"
-            style="@style/Home.Heading"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/transactionIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="6dp"
+                android:contentDescription="@null"
+                android:src="@drawable/spending" />
+
+            <TextView
+                android:id="@+id/transactionAmount"
+                style="@style/Home.Heading"
+                android:layout_width="wrap_content"
+                android:textSize="16sp" />
+        </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

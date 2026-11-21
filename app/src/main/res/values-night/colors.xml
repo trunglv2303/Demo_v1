@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="menu">#1E293B</color>
+    <color name="primarybody">#0F172A</color>
+
+    <color name="settings_bg">#0F172A</color>
+    <color name="settings_surface">#1E293B</color>
+    <color name="settings_text">#F8FAFC</color>
+    <color name="settings_text_secondary">#94A3B8</color>
+    <color name="settings_stroke">#334155</color>
+    <color name="settings_divider">#334155</color>
+    <color name="settings_chevron">#94A3B8</color>
+    <color name="expense_summary_bg">#1E293B</color>
+    <color name="income_card_bg">#052E16</color>
+    <color name="income_card_stroke">#166534</color>
+    <color name="income_amount_text">#4ADE80</color>
+    <color name="expense_card_bg">#450A0A</color>
+    <color name="expense_card_stroke">#991B1B</color>
+    <color name="expense_amount_text">#F87171</color>
+</resources>

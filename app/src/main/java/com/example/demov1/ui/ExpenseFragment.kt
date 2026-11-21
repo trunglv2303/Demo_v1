@@ -23,18 +23,27 @@ class ExpenseFragment : Fragment(R.layout.fragment_expense) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentExpenseBinding.bind(view)
         val sampleTransactions = DataManager.sampleTransactions
-val today=Calendar.getInstance()
+        val today = Calendar.getInstance()
         binding.transactionList.layoutManager = LinearLayoutManager(requireContext())
-        binding.transactionList.adapter =
+        val adapter =
             TransactionAdapter(sampleTransactions) { transaction ->
                 val detailFragment = TransactionDetailFragment.newInstance(transaction)
                 parentFragmentManager
                     .beginTransaction()
                     .replace(R.id.fragmentContainer, detailFragment)
-                    .addToBackStack(null) // Giúp bấm nút Back quay lại được danh sách giao dịch
+                    .addToBackStack(null)
                     .commit()
             }
-binding.tvMonth.text="${today.get(Calendar.MONTH)}/${today.get(Calendar.YEAR)}"
+        binding.transactionList.adapter = adapter
+
+        childFragmentManager.setFragmentResultListener(
+            CreateTransactionDialog.RESULT_KEY,
+            viewLifecycleOwner
+        ) { _, _ ->
+            adapter.updateTransactions(DataManager.sampleTransactions)
+        }
+
+        binding.tvMonth.text = "${today.get(Calendar.MONTH) + 1}/${today.get(Calendar.YEAR)}"
         binding.createTransaction.setOnClickListener {
             if (childFragmentManager.findFragmentByTag(CreateTransactionDialog.TAG) == null) {
                 CreateTransactionDialog().showNow(childFragmentManager, CreateTransactionDialog.TAG)

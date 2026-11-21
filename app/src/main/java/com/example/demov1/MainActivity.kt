@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.demov1.databinding.ActivityMainBinding
 import com.example.demov1.ui.ExpenseFragment
 import com.example.demov1.ui.HomeFragment
-import com.example.demov1.ui.TransactionDetailFragment
+import com.example.demov1.ui.SettingsFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             val fragment = when (item.itemId) {
                 R.id.action_home -> HomeFragment()
                 R.id.transaction -> ExpenseFragment()
-                R.id.action_settings -> TransactionDetailFragment()
+                R.id.action_settings -> SettingsFragment()
                 else -> return@setOnItemSelectedListener false
             }
 
