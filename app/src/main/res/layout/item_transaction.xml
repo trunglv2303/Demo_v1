@@ -1,58 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/Home.Card"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="6dp"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/settings_surface"
+    app:cardCornerRadius="14dp"
+    app:strokeColor="@color/settings_stroke">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="62dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:id="@+id/container"
-        android:padding="16dp">
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp">
+
+        <ImageView
+            android:id="@+id/transactionIcon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@null"
+            android:padding="9dp"
+            tools:src="@drawable/spending" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/transactionName"
                 style="@style/Home.Heading"
-                android:textSize="16sp" />
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/settings_text"
+                android:textSize="15sp"
+                tools:text="Ăn sáng" />
 
             <TextView
                 android:id="@+id/transactionType"
                 style="@style/Home.Body"
-                android:textSize="16sp" />
-           
-            <TextView
-                android:id="@+id/transactionDate"
-                style="@style/Home.Body"
-                android:layout_marginTop="4dp" />
+                android:textColor="@color/settings_text_secondary"
+                android:textSize="13sp"
+                tools:text="Khoản chi" />
         </LinearLayout>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/transactionAmount"
+            style="@style/Home.Heading"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/transactionIcon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="6dp"
-                android:contentDescription="@null"
-                android:src="@drawable/spending" />
-
-            <TextView
-                android:id="@+id/transactionAmount"
-                style="@style/Home.Heading"
-                android:layout_width="wrap_content"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:gravity="end"
+            android:maxWidth="140dp"
+            android:textSize="15sp"
+            tools:text="−5.000 ₫" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

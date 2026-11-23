@@ -1,10 +1,9 @@
 package com.example.demov1.data
 
-import com.example.demov1.R
-import com.example.demov1.model.Transaction
+import com.example.demov1.data.model.Transaction
 
 object DataManager {
-    val sampleTransactions = mutableListOf(
+    private val initialTransactions = listOf(
         Transaction(
             id = "2",
             title = "Ăn sáng",
@@ -26,13 +25,23 @@ object DataManager {
             id = "1",
             title = "Tiền lương",
             amount = 30.000,
-            type = "Khoản chi",
+            type = "Khoản thu",
             date = "21/11/2026",
             imageUrl = ""
 
         )
 
     )
+    private val transactionsByAccount = mutableMapOf<String, MutableList<Transaction>>()
+    var sampleTransactions = initialTransactions.toMutableList()
+        private set
+
+    fun selectAccount(email: String) {
+        sampleTransactions = transactionsByAccount.getOrPut(email) {
+            initialTransactions.map { it.copy() }.toMutableList()
+        }
+    }
+
     fun addTransaction(Transaction: Transaction) {
         sampleTransactions.add(Transaction)
     }

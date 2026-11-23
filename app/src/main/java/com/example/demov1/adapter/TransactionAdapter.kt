@@ -1,13 +1,16 @@
 package com.example.demov1.adapter
 
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demov1.R
 import com.example.demov1.databinding.ItemTransactionBinding
 import com.example.demov1.databinding.ItemTransactionDateHeaderBinding
-import com.example.demov1.model.Transaction
+import com.example.demov1.data.model.Transaction
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -103,35 +106,34 @@ class TransactionAdapter(
 
         fun bind(label: String, count: Int) {
             binding.tvDateHeader.text = label
-            binding.tvDateCount.text = "$count giao dịch"
+            binding.tvDateCount.text = binding.root.context.getString(R.string.transaction_day_count, count)
         }
     }
 
     class TransactionViewHolder(private val binding: ItemTransactionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        private val currencyFormat = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("vi-VN")).apply {
+            maximumFractionDigits = 2
+        }
+
         fun bind(transaction: Transaction) {
             binding.transactionName.text = transaction.title.ifEmpty { transaction.id }
-            binding.transactionDate.text = transaction.date
-            binding.transactionAmount.text = transaction.amount.toString()
-            binding.transactionType.text = transaction.type
-
-            val isIncome =
-                transaction.type == binding.root.context.getString(R.string.transaction_income) ||
-                    transaction.amount >= 0
-
             val context = binding.root.context
-            if (isIncome) {
-                binding.root.setCardBackgroundColor(ContextCompat.getColor(context, R.color.income_card_bg))
-                binding.root.strokeColor = ContextCompat.getColor(context, R.color.income_card_stroke)
-                binding.transactionAmount.setTextColor(ContextCompat.getColor(context, R.color.income_amount_text))
-                binding.transactionIcon.setImageResource(R.drawable.income)
-            } else {
-                binding.root.setCardBackgroundColor(ContextCompat.getColor(context, R.color.expense_card_bg))
-                binding.root.strokeColor = ContextCompat.getColor(context, R.color.expense_card_stroke)
-                binding.transactionAmount.setTextColor(ContextCompat.getColor(context, R.color.expense_amount_text))
-                binding.transactionIcon.setImageResource(R.drawable.spending)
-            }
+            val isIncome = transaction.amount >= 0
+            val amountColor = ContextCompat.getColor(
+                context,
+                if (isIncome) R.color.income_amount_text else R.color.expense_amount_text
+            )
+            binding.transactionType.setText(if (isIncome) R.string.transaction_income else R.string.transaction_expense)
+            val amount = currencyFormat.format(transaction.amount)
+            binding.transactionAmount.text = if (transaction.amount > 0) "+$amount" else amount
+            binding.transactionAmount.setTextColor(amountColor)
+            binding.transactionIcon.setImageResource(if (isIncome) R.drawable.income else R.drawable.spending)
+            binding.transactionIcon.setBackgroundResource(
+                if (isIncome) R.drawable.bg_circle_income else R.drawable.bg_circle_expense
+            )
+            ImageViewCompat.setImageTintList(binding.transactionIcon, ColorStateList.valueOf(amountColor))
         }
     }
 

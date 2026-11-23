@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.demov1.MainActivity
-import com.example.demov1.R
+import com.example.demov1.data.AccountStore
 import com.example.demov1.databinding.PlashBinding
 
 class Splash: AppCompatActivity() {
@@ -18,11 +18,16 @@ class Splash: AppCompatActivity() {
             else AppCompatDelegate.MODE_NIGHT_NO
         )
         super.onCreate(savedInstanceState)
+        if (AccountStore(this).activeEmail != null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            return
+        }
         val binding = PlashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnNext.setOnClickListener {
-            val intent= Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, AuthActivity::class.java))
+            finish()
         }
     }
 }

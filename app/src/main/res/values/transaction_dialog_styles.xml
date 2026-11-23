@@ -1,0 +1,33 @@
+<resources>
+    <style name="ThemeOverlay.DemoV1.TransactionDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorSurface">@color/settings_surface</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.DemoV1.TransactionDialog</item>
+    </style>
+
+    <style name="ShapeAppearance.DemoV1.TransactionDialog" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <style name="Widget.DemoV1.TransactionField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    </style>
+
+    <style name="Widget.DemoV1.TransactionOption" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/transaction_option_text</item>
+        <item name="backgroundTint">@color/transaction_option_background</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="strokeColor">@color/settings_stroke</item>
+    </style>
+</resources>

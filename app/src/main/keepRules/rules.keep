@@ -4,9 +4,12 @@
 # For more details, see
 #   https://d.android.com/r/tools/r8/keep-rules
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Giữ nguyên tên field của model để Gson map đúng với JSON
+-keep class com.example.demov1.model.** { *; }
+
+# Retrofit + Gson
+-keepattributes Signature, *Annotation*, InnerClasses, EnclosingMethod
+-keep,allowobfuscation,allowshrinking interface retrofit2.Call
+-keep,allowobfuscation,allowshrinking class retrofit2.Response
+-keep,allowobfuscation,allowshrinking class kotlin.coroutines.Continuation
+-keep interface com.example.demov1.data.remote.ApiService { *; }

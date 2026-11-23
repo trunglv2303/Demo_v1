@@ -31,11 +31,11 @@
         <com.google.android.material.card.MaterialCardView
             style="@style/Home.Card"
             android:layout_marginTop="20dp"
-            app:cardBackgroundColor="#23346D"
+            app:cardBackgroundColor="@color/ocean_start"
             app:strokeWidth="0dp">
 
             <LinearLayout style="@style/Home.CardContent"
-                android:background="@color/primarycolor"
+                android:background="@drawable/bg_ocean"
 
                 >
 
@@ -55,7 +55,7 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginBottom="16dp"
-                    android:background="#66CDD8FF"
+                    android:background="@color/ocean_divider"
                     android:importantForAccessibility="no" />
 
                 <LinearLayout
@@ -109,10 +109,12 @@
 
                 <TextView
                     style="@style/Home.Heading"
+                    android:id="@+id/totaltaskhome"
                     android:text="@string/home_task_progress"
                     android:textSize="18sp" />
 
                 <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/taskProgressHome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
@@ -123,6 +125,7 @@
                     app:trackThickness="8dp" />
 
                 <TextView
+                    android:id="@+id/taskStatusHome"
                     style="@style/Home.Body"
                     android:layout_marginTop="12dp"
                     android:text="@string/home_no_tasks" />
@@ -135,21 +138,44 @@
 
         <com.google.android.material.card.MaterialCardView style="@style/Home.Card">
 
-            <LinearLayout
-                style="@style/Home.CardContent"
-                android:gravity="center_horizontal">
+            <LinearLayout style="@style/Home.CardContent">
 
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/transaction"
-/>
                 <TextView
+                    android:id="@+id/todaytransaction"
                     style="@style/Home.Body"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="@string/home_no_transactions" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/transactionListHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/emptyTransactionLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/transaction" />
+
+                    <TextView
+                        style="@style/Home.Body"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/home_no_transactions" />
+                </LinearLayout>
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>

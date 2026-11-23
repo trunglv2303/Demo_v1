@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/settings_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_ocean"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/auth_brand"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/authTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:accessibilityHeading="true"
+                    android:text="@string/auth_login"
+                    android:textColor="@color/white"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/authSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/auth_login_intro"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Home.Card"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout style="@style/Home.CardContent">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/emailLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/auth_email">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="emailAddress"
+                            android:inputType="textEmailAddress"
+                            android:singleLine="true" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/passwordLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:endIconMode="password_toggle"
+                        android:hint="@string/auth_password">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="password"
+                            android:saveEnabled="false"
+                            android:inputType="textPassword"
+                            android:singleLine="true" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/confirmLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:endIconMode="password_toggle"
+                        android:visibility="gone"
+                        android:hint="@string/auth_confirm">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/confirm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="newPassword"
+                            android:saveEnabled="false"
+                            android:inputType="textPassword"
+                            android:singleLine="true" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/feedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:accessibilityLiveRegion="polite"
+                        android:textColor="?attr/colorError"
+                        android:visibility="gone" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:minHeight="52dp"
+                        android:text="@string/auth_login"
+                        android:textAllCaps="false"
+                        app:cornerRadius="14dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/switchMode"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="@string/auth_go_to_register"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

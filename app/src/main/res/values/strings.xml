@@ -5,7 +5,17 @@
     <string name="transaction_detail_date">Ngày giao dịch</string>
     <string name="transaction_preview">Dữ liệu mẫu</string>
     <string name="transaction_create">Tạo giao dịch</string>
+    <string name="transaction_add">Thêm</string>
+    <string name="transaction_previous_month">Tháng trước</string>
+    <string name="transaction_next_month">Tháng sau</string>
+    <string name="transaction_month">Tháng %1$d/%2$d</string>
+    <string name="transaction_month_balance">Số dư trong tháng</string>
+    <string name="transaction_history">Lịch sử giao dịch</string>
+    <string name="transaction_empty_month">Tháng này chưa có giao dịch.</string>
+    <string name="transaction_day_count">%1$d giao dịch</string>
     <string name="transaction_close">Đóng</string>
+    <string name="transaction_save">Lưu giao dịch</string>
+    <string name="transaction_invalid_amount">Vui lòng nhập số tiền hợp lệ</string>
     <string name="transaction_income">Khoản thu</string>
     <string name="transaction_expense">Khoản chi</string>
     <string name="transaction_name">Tên giao dịch</string>

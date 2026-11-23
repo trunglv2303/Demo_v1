@@ -1,0 +1,7 @@
+package com.example.demov1.data.model
+data class Task(
+    val userId: Int,
+    val id: Int,
+    val title: String,
+    val completed: Boolean
+)

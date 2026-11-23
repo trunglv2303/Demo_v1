@@ -1,0 +1,21 @@
+<resources>
+    <string name="auth_brand">Quản lý chi tiêu</string>
+    <string name="auth_continue">Tiếp tục</string>
+    <string name="auth_login">Đăng nhập</string>
+    <string name="auth_register">Đăng ký tài khoản</string>
+    <string name="auth_login_intro">Đăng nhập để theo dõi thu chi và công việc của bạn.</string>
+    <string name="auth_register_intro">Tạo tài khoản lưu trên thiết bị này.</string>
+    <string name="auth_email">Email</string>
+    <string name="auth_password">Mật khẩu</string>
+    <string name="auth_confirm">Nhập lại mật khẩu</string>
+    <string name="auth_go_to_register">Chưa có tài khoản? Đăng ký</string>
+    <string name="auth_go_to_login">Đã có tài khoản? Đăng nhập</string>
+    <string name="auth_invalid_email">Nhập địa chỉ email hợp lệ.</string>
+    <string name="auth_missing_password">Nhập mật khẩu.</string>
+    <string name="auth_short_password">Mật khẩu cần ít nhất 8 ký tự.</string>
+    <string name="auth_password_mismatch">Mật khẩu nhập lại chưa khớp.</string>
+    <string name="auth_email_exists">Email này đã được đăng ký trên thiết bị.</string>
+    <string name="auth_login_error">Email hoặc mật khẩu chưa đúng.</string>
+    <string name="auth_save_error">Không lưu được tài khoản. Vui lòng thử lại.</string>
+    <string name="auth_sign_out">Đăng xuất</string>
+</resources>

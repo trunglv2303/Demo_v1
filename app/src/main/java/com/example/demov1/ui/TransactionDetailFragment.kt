@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.demov1.databinding.FragmentTransactionDetailBinding
-import com.example.demov1.model.Transaction
+import com.example.demov1.data.model.Transaction
 
 class TransactionDetailFragment : Fragment() {
     override fun onCreateView(
